@@ -1,0 +1,4 @@
+python3 -m pip install fastapi uvicorn ultralytics torch torchvision torchaudio torch-geometric pydantic numpy opencv-python pillow
+
+
+python3 -m uvicorn main:app --reload
