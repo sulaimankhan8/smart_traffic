@@ -1,9 +1,9 @@
 ![mqdefault](https://github.com/user-attachments/assets/b9ae07e7-46f5-499d-9de0-43a61410fa45)
 
 
-   after cloning it 
-   open terminal
-   cd baackend 
+   after cloning it ,
+   open terminal,
+   cd baackend ,
    python3 -m pip install fastapi uvicorn ultralytics torch torchvision torchaudio torch-geometric pydantic numpy opencv-python pillow
 
    python3 -m uvicorn main:app
@@ -15,7 +15,7 @@
 
    you will be good to go 
 
-   it have 5 fratures 
+   
 
    # Smart Traffic Management System
 
@@ -154,10 +154,13 @@ To improve traffic control, we integrate **time-series forecasting** using **gra
 ✅ **AI-based traffic forecasting** (Prevents future jams)  
 ✅ **Self-optimizing system** (Adapts to changing conditions)  
 
----
 
-## Next Steps
-- Implement a **Python prototype** for traffic monitoring & YOLOv8 integration.  
-- Build the **traffic scheduling model** using **Dijkstra’s algorithm / Reinforcement Learning (RL)**.  
-- Optimize **ST-GCN & DCRNN models** for forecasting accuracy. 🚦
+![image](https://github.com/user-attachments/assets/d1390ac9-50f0-47ae-8ae7-55ce3d20d619)
+![image](https://github.com/user-attachments/assets/32a7bf9e-7605-43df-94a3-9d0c3c90c2fe)
+![image](https://github.com/user-attachments/assets/56eae6a2-e589-47cc-8ca9-0bf7f8e17859)
+![image](https://github.com/user-attachments/assets/0b194a8a-f7cd-4344-8caa-a251665d9ac1)
+![image](https://github.com/user-attachments/assets/ccd8bbbd-43ab-4e0e-bdc8-e0d94ede6c90)
+![image](https://github.com/user-attachments/assets/be72a16e-37e4-43f4-a87d-a51b1871b6db)
+![image](https://github.com/user-attachments/assets/e1690228-d412-4759-8f6a-7e3ce314119c)
+![image](https://github.com/user-attachments/assets/1f3417ac-d2e1-4e40-8d85-7511887af2b4)
 
