@@ -16,7 +16,10 @@ https://www.youtube.com/watch?v=EVyDJPDPGGE
    you will be good to go 
 
    
-
+credits for data sets
+https://www.kaggle.com/datasets/andrewmvd/helmet-detection
+https://www.kaggle.com/datasets/sakshamjn/vehicle-detection-8-classes-object-detection
+https://universe.roboflow.com/accident-detection-model 
    # Smart Traffic Management System
 
 ## Overview
