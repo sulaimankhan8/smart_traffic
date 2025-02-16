@@ -1,5 +1,5 @@
 ![mqdefault](https://github.com/user-attachments/assets/b9ae07e7-46f5-499d-9de0-43a61410fa45)
-
+https://www.youtube.com/watch?v=EVyDJPDPGGE
 
    after cloning it ,
    open terminal,
