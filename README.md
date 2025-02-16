@@ -154,6 +154,121 @@ To improve traffic control, we integrate **time-series forecasting** using **gra
 ✅ **AI-based traffic forecasting** (Prevents future jams)  
 ✅ **Self-optimizing system** (Adapts to changing conditions)  
 
+ # Smart Traffic Management System - Lucknow Implementation
+
+## Overview
+This document details the implementation of a **Smart Traffic Management System** for **Lucknow**, covering **395 junctions/intersections** categorized by traffic density:
+
+- **High-Traffic Junctions:** 50
+- **Mid-Traffic Junctions:** 345
+
+## System Components
+
+### Cameras
+- **High-Traffic Areas:** Axis P1468-LE / Hikvision ANPR (₹45,000 per unit)
+- **Mid-Traffic Areas:** Hikvision DS-2 CD2085G1-I (₹12,000 per unit)
+- **Storage Requirement:** 20GB per camera per day
+
+### On-Site Edge Processing
+- **Jetson Xavier NX (₹45,000 per unit) for real-time AI processing**
+- **Arduino for auxiliary control functions**
+
+### AI Processing & Traffic Analysis
+Each **Jetson Xavier NX** processes real-time traffic data every **10 minutes**, sending updates to a centralized database. The following parameters are captured:
+1. **Vehicle Count** (Total vehicles detected in the last 10 minutes)
+2. **Average Speed** (Calculated based on object tracking data)
+3. **Congestion Level** (Estimated using lane occupancy metrics)
+4. **Accident Alerts** (Detected using anomaly detection in vehicle movement)
+5. **Helmet Violation Detection** (YOLO-based detection of riders without helmets)
+
+### Compression Techniques
+- **H.265** for efficient video compression
+- **Blob/Base64** for metadata storage and transmission
+
+### Connectivity
+- **PoE+ (Power over Ethernet) for camera connectivity**
+- **PoE Switch (₹8,000 per unit)**
+- **PoE Splitter (₹3,000 per unit)**
+- **Ethernet Cable (₹10 per meter, assumed 50m per junction)**
+
+### Storage
+#### On-Site Storage
+- **NVR HDD:** ₹1,000 - ₹3,000 per TB (7-day retention)
+- **NAS HDD:** ₹3,000 per TB (30-day retention)
+
+#### Cloud Storage
+- **AWS S3 Glacier:** ₹450 per TB (up to 1-year retention, for specific events)
+
+### Smart Traffic Light Control
+- Junctions adjust signal timing based on real-time traffic data.
+- **Total cycle time: 12 minutes (720 seconds)**
+- Each lane receives a **minimum 90 seconds**, and the remaining time is **dynamically allocated** based on congestion levels using **ST-GCN** (Spatio-Temporal Graph Convolutional Network) for short-term predictions.
+
+### Forecasting & Optimization
+- **Short-Term Prediction (ST-GCN, Next 10–30 min):** Helps dynamically adjust future signal timings.
+- **Long-Term Prediction (DCRNN, Next few hours/days):** Predicts traffic trends to optimize city planning and road infrastructure.
+
+### Machine Learning Models Used
+#### **ST-GCN (Spatio-Temporal Graph Convolutional Network)**
+- **Why ST-GCN?** It is effective in handling spatio-temporal relationships in road networks.
+- **Working Principle:**
+  - Represents road junctions and vehicle flow as a **graph**.
+  - Uses **graph convolutional layers** to model spatial dependencies.
+  - Employs **temporal convolutions** to capture time-based traffic variations.
+  - Enables **real-time forecasting** (next **10-30 minutes**) for dynamic signal adjustments.
+
+#### **DCRNN (Diffusion Convolutional Recurrent Neural Network)**
+- **Why DCRNN?** It excels in long-term traffic forecasting (hours to days ahead).
+- **Working Principle:**
+  - Uses a **diffusion process** over a road network graph to capture traffic patterns.
+  - **Recurrent layers** (LSTMs/GRUs) model temporal dependencies.
+  - Helps in optimizing long-term traffic policies, roadwork planning, and congestion mitigation.
+
+## Budget Estimation
+
+### Cost Per Junction (Assuming 4 Cameras per Junction)
+| Component           | High-Traffic (₹) | Mid-Traffic (₹) |
+|--------------------|----------------|----------------|
+| 4 Cameras         | 1,80,000        | 48,000         |
+| Jetson Xavier NX  | 45,000          | 45,000         |
+| PoE Switch       | 8,000           | 8,000          |
+| PoE Splitter     | 3,000           | 3,000          |
+| Ethernet (50m)   | 500             | 500            |
+| NVR HDD (7 Days) | 3,000           | 3,000          |
+| NAS HDD (30 Days)| 3,000           | 3,000          |
+| Cloud (Per TB)   | 450             | 450            |
+| **Total**        | **2,42,950**      | **1,10,950**     |
+
+### Centralized System Cost
+| Component          | Estimated Cost (₹) |
+|-------------------|------------------|
+| Centralized Control Server | 10,00,000 |
+| Data Processing Server     | 8,00,000  |
+| Cloud Storage Setup       | 5,00,000  |
+| Network Infrastructure     | 4,00,000  |
+| **Total**                  | **27,00,000** |
+
+### Overall Cost
+#### Total Cost for All Junctions
+| Category         | Count | Cost Per Junction (₹) | Total Cost (₹) |
+|----------------|------|---------------------|--------------|
+| High-Traffic   | 50   | 2,42,950             | 1,21,47,500   |
+| Mid-Traffic    | 345  | 1,10,950             | 3,82,77,750   |
+| **Total**      | 395  | -                   | **5,04,25,250** |
+
+#### Grand Total (Including Centralized System)
+**₹5,04,25,250 + ₹27,00,000 = ₹5,31,25,250**
+
+## Conclusion
+This **AI-powered traffic management system** will significantly enhance urban mobility by:
+- **Real-time monitoring** with **YOLOv8-based analytics**.
+- **Dynamic traffic signal control** using **ST-GCN & DCRNN**.
+- **Efficient congestion forecasting** to prevent future jams.
+- **Optimized storage solutions** with hybrid on-site and cloud-based retention.
+
+This scalable approach ensures a **smarter, safer, and more efficient** urban traffic system for Lucknow.
+
+
 
 ![image](https://github.com/user-attachments/assets/d1390ac9-50f0-47ae-8ae7-55ce3d20d619)
 ![image](https://github.com/user-attachments/assets/32a7bf9e-7605-43df-94a3-9d0c3c90c2fe)
