@@ -1,4 +1,4 @@
-this is a demo so no data pipeline or database due to time constraints.
+this is a demo so no realtime data pipeline or database due to time constraints.
 ![mqdefault](https://github.com/user-attachments/assets/b9ae07e7-46f5-499d-9de0-43a61410fa45)
 https://www.youtube.com/watch?v=EVyDJPDPGGE
 
